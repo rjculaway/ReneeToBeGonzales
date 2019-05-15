@@ -1,0 +1,44 @@
+@import "../assets/styles/colors";
+
+
+.header {
+    padding: 1.5rem 0;
+    width: 100%;
+
+    position: absolute;
+    z-index: 15;
+
+    &.snap {
+        position: fixed;
+        background: rgba(255, 255, 255, 0.7);
+        top: 0;
+        z-index: 15;
+    }
+}
+
+.charcoal {
+    color: $charcoal;
+}
+
+.panel-1 {
+    background-color: $sand;
+    background: url(../assets/images/image-1.jpg) no-repeat;
+    background-size: cover;
+    background-position: top;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-2 {
+    background-color: $rust;
+}
+
+#group1 {
+    z-index: 5;
+}
+
+#group1 {
+    z-index: 3;
+}
