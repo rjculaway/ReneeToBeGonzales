@@ -1,4 +1,4 @@
 interface EnvironmentModel {
-    production: boolean,
+    production: boolean;
     firebase: any;
 }

@@ -26,6 +26,6 @@ export class GuestListComponent implements OnInit {
   }
 
   test() {
-    console.log(this.selected);
+    this.rsvpService.confirmRsvp(this.selected.id, this.selected.going);
   }
 }

@@ -15,7 +15,7 @@ export class RsvpService {
         return this.db.collection<GuestModel>('guests');
     }
 
-    confirmRsvp(name: string, isGoing: boolean) {
-        return this.db.collection('guests').doc(name).set({ isGoing: isGoing });
+    confirmRsvp(id: string, isGoing: boolean) {
+        return this.db.collection('guests').doc(id).update({ isGoing: isGoing});
     }
 }
