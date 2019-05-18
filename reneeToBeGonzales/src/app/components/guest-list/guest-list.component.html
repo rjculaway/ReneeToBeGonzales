@@ -3,8 +3,8 @@
     we are hoping that you could join us.
   </div>
   <div class="guest-list">
-    <ng-container *ngFor="let guest of guestList"> 
-      <a [ngClass]="{ 'selected': selected && selected.name === guest.name }" (click)="selected = guest">{{ guest.fullName }}</a>
+    <ng-container *ngFor="let guest of guestList | async"> 
+      <a [ngClass]="{ 'selected': selected && selected.name === guest.fullName }" (click)="selected = guest">{{ guest.fullName }}</a>
     </ng-container>
   </div>
   <div class="rsvp" *ngIf="selected">
@@ -20,5 +20,5 @@
         </mat-radio-button>
     </mat-radio-group>
 
-    <button mat-flat-button class="subtext">Submit</button>
+    <button class="subtext" (click)="test()">Submit</button>
   </div>
