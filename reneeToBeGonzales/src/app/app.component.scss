@@ -23,7 +23,6 @@ h1 {
 
 .header {
     width: 100%;
-    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,7 +33,6 @@ h1 {
 
     &.snap {
         position: fixed;
-        background: linear-gradient(to bottom right, rgba(65, 81, 141, .2), rgba(221, 192, 184, .5));
         top: 0;
         z-index: 15;
         color: rgb(46, 40, 41);
@@ -104,6 +102,7 @@ h1 {
     .subtext {
         margin-top: 50vh;
         color: white;
+        opacity: 0;
     }
 }
 
