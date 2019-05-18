@@ -1,11 +1,11 @@
 <div>
   <div appSection class="section panel-1">
-    <div #header class="header">
-        <div class="large charcoal">
-          renee + gerald
-        </div>
+    <div #header class="header" [@snap]="snap">
+      <div class="large charcoal">
+        renee + gerald
       </div>
-    <span *ngIf="showSubtext" class="subtext">to happily ever after!</span>
+    </div>
+    <div class="subtext" [@fadeIn]="fadeIn">to happily ever after...</div>
   </div>
   <div appSection class="section panel-2">
     <div class="fixed">

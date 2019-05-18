@@ -1,7 +1,10 @@
 
+  <div class="rsvp-text subtext">
+    we are hoping that you could join us.
+  </div>
   <div class="guest-list">
     <ng-container *ngFor="let guest of guestList"> 
-      <a (click)="selected = guest">{{ guest.fullName }}</a>
+      <a [ngClass]="{ 'selected': selected && selected.name === guest.name }" (click)="selected = guest">{{ guest.fullName }}</a>
     </ng-container>
   </div>
   <div class="rsvp" *ngIf="selected">

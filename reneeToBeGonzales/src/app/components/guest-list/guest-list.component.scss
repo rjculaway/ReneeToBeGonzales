@@ -1,5 +1,11 @@
 @import "../../../assets/styles/colors";
 
+.rsvp-text {
+    margin-top: 8rem;
+    margin-bottom: 1rem;
+    color: $peach;
+}
+
 .rsvp {
     margin-top: 1rem;
     padding: 1rem;
@@ -24,7 +30,6 @@
     max-height: 50vh;
     overflow: auto;
     background: rgba(80, 70, 71, .5);
-    margin-top: 8rem;
     padding: 1rem;
 
     display: flex;
@@ -33,10 +38,16 @@
     a {
         padding: 1rem;
         color: white;
+        cursor: pointer;
 
         &:hover {
             color: $charcoal;
             background-color: rgba(221, 192, 184, 0.5)
         }
+    }
+
+    .selected {
+        color: $charcoal;
+        background-color: rgba(221, 192, 184, 0.5)
     }
 }
