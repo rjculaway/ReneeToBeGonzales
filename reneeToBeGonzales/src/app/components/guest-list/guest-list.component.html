@@ -4,7 +4,7 @@
   </div>
   <div class="guest-list">
     <ng-container *ngFor="let guest of guestList"> 
-      <a [ngClass]="{ 'selected': selected && selected.name === guest.name }" (click)="selected = guest">{{ guest.fullName }}</a>
+      <a [ngClass]="{ 'selected': selected && selected.fullName === guest.fullName }" (click)="selected = guest">{{ guest.fullName }}</a>
     </ng-container>
   </div>
   <div class="rsvp" *ngIf="selected">

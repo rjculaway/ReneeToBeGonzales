@@ -10,7 +10,7 @@ export class RsvpService {
     constructor(private db: AngularFirestore) {
     }
 
-    getAllGuests() {
+    getAllGuests(): any {
         return this.db.collection('guests').valueChanges();
     }
 

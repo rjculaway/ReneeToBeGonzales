@@ -15,67 +15,24 @@ export class GuestListComponent implements OnInit {
 
   ngOnInit() {
     this.rsvpService.getAllGuests().subscribe(items => {
-      console.log(items)
-      this.guestList = items;
+      
+      this.guestList = items.map(item => {
+        return {
+          fullName: item.fullName,
+          lastName: item.fullName.split(/[ ]+/).pop(),
+          isGoing: item.isGoing
+        }
+      }).sort((a, b) => {
+        if (a.lastName > b.lastName) {
+            return 1;
+        }
+    
+        if (a.lastName < b.lastName) {
+            return -1;
+        }
+    
+        return 0;
+      });
     });
-    // this.guestList = this._get()
-    // .sort((a, b) => {
-    //   if (a.name > b.name) {
-    //       return 1;
-    //   }
-  
-    //   if (a.name < b.name) {
-    //       return -1;
-    //   }
-  
-    //   return 0;
-    // });
-  }
-  
-  private _get(): any {
-    //this.rsvpService.getAllGuests().valueChanges;
-    return [{
-        name: 'Maria Rosario Purugganan',
-        going: true
-      }, {
-        name: 'Darah Umadac',
-        going: false
-      }, {
-        name: 'Kyla Iglesia',
-        going: false
-      }, {
-        name: 'Rogeross Berana',
-        going: false
-      }, {
-        name: 'Jayson Valeroso',
-        going: false
-      }, {
-        name: 'Ramonchito Bendijo',
-        going: false
-      }, {
-        name: 'Aaron Sanchez',
-        going: false
-      }, {
-        name: 'Aalvin Katigbak',
-        going: false
-      }, {
-        name: 'Laarni Jan Laurente',
-        going: false
-      }, {
-        name: 'Lea Lora Tadeo',
-        going: false
-      }, {
-        name: 'Glen Laurente',
-        going: false
-      }, {
-        name: 'Adrian Tadeo',
-        going: false
-      }, {
-        name: 'Rene Jotham Culaway',
-        going: false
-      }, {
-        name: 'Maria Franchesca Valle',
-        going: false
-      }];
   }
 }
