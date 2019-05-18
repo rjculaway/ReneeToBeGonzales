@@ -10,6 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
 
+import { environment } from 'src/environments/environment';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { RsvpService } from './services/rsvp.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,9 +29,14 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     FormsModule,
     MatRadioModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [],
+  providers: [RsvpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

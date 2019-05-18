@@ -1,7 +1,7 @@
 
   <div class="guest-list">
     <ng-container *ngFor="let guest of guestList"> 
-      <a (click)="selected = guest">{{ guest.name }}</a>
+      <a (click)="selected = guest">{{ guest.fullName }}</a>
     </ng-container>
   </div>
   <div class="rsvp" *ngIf="selected">
