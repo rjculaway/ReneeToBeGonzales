@@ -1,0 +1,25 @@
+@import "../../../assets/styles/colors";
+
+.rsvp {
+    background: rgba(80, 70, 71, .5);
+}
+
+.guest-list {
+    max-height: 50vh;
+    overflow: auto;
+    margin-top: 5rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+
+    a {
+        padding: 1rem;
+        color: white;
+
+        &:hover {
+            color: $charcoal;
+            background-color: rgba(221, 192, 184, 0.5)
+        }
+    }
+}

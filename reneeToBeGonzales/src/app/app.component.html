@@ -1,16 +1,72 @@
 <div>
-  <div class="section panel-1">
-  <div #header class="header">
-    <h1 class="large charcoal">
-      renee + gerald
-    </h1>
+  <div appSection class="section panel-1">
+    <div #header class="header">
+        <div class="large charcoal">
+          renee + gerald
+        </div>
+      </div>
+    <span *ngIf="showSubtext" class="subtext">to happily ever after!</span>
   </div>
-  </div>
-  <div class="section  panel-2">
+  <div appSection class="section panel-2">
     <div class="fixed">
-      <h1 class="large">
-        July 06, 2019
-      </h1>
+      <div class="large">
+        <span class="subtext">Silong at Balay Dako</span>
+        <BR>
+        July 06, 2019 | 6 PM
+      </div>
+    </div>
+  </div>
+  <div appSection class="section panel-3">
+    <div class="fixed">
+      <div class="large">
+        <div class="subtext">
+          <p>
+            dress real pretty, dress real fine,
+          </p>
+          <p>
+            but you can leave your heels behind.
+          </p>
+          <p>
+            dress for comfort, dress for fun
+          </p>
+          <p>
+            'cause it's a party, when all's said and done.
+          </p>
+          <div class="dress-code">
+            <object data="../assets/images/svg/cocktail-dress.svg" type="image/svg+xml"></object>
+            <object data="../assets/images/svg/formal-shirt.svg" type="image/svg+xml"></object>
+            <object data="../assets/images/svg/bow-tie.svg" type="image/svg+xml"></object>
+            <object data="../assets/images/svg/chinos-pants.svg" type="image/svg+xml"></object>
+          </div>
+          <div class="palette">
+            <div class="color bg-charcoal"></div>
+            <div class="color bg-rust"></div>
+            <div class="color bg-peach"></div>
+            <div class="color bg-blush"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div appSection class="section panel-4">
+    <div class="fixed">
+      <div class="large">
+        THE WISHING WELL
+        <p class="subtext">we ask that your presence is your gift to us</p>
+        <p class="subtext">since we already have a lot of stuff</p>
+        <p class="subtext">but if you'd like to bring a gift to send us on our way</p>
+        <p class="subtext">a small contribution to our wishing well</p>
+        <p class="subtext">would surely make our day.</p>
+      </div>
+    </div>
+  </div>
+  <div appSection class="section panel-5">
+    <div class="large guest-list">
+      <app-guest-list></app-guest-list>
+    </div>
+  </div>
+  <div appSection class="section panel-6">
+    <div class="large">
     </div>
   </div>
 </div>

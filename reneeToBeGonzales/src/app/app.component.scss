@@ -1,18 +1,49 @@
 @import "../assets/styles/colors";
 
+h1 {
+    height: 100%;
+}
+.navbar-burger {
+    width: 100%;
+}
+
+.navbar-start {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar-item {
+    color: rgb(46, 40, 41);
+
+    &:hover {
+        color: inherit;
+    }
+}
 
 .header {
-    padding: 1.5rem 0;
     width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
 
     position: absolute;
     z-index: 15;
 
     &.snap {
         position: fixed;
-        background: rgba(255, 255, 255, 0.7);
+        background: linear-gradient(to bottom right, rgba(65, 81, 141, .2), rgba(221, 192, 184, .5));
         top: 0;
         z-index: 15;
+        color: rgb(46, 40, 41);
+    }
+
+    .large {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
@@ -20,25 +51,98 @@
     color: $charcoal;
 }
 
-.panel-1 {
+.bg-charcoal {
+    background-color: $charcoal;
+}
+
+.rust {
+    color: $rust;
+}
+
+.bg-rust {
+    background-color: $rust;
+}
+
+.bg-peach {
+    background-color: $peach;
+}
+
+.bg-blush {
+    background-color: $blush;
+}
+
+.bg-sand {
     background-color: $sand;
-    background: url(../assets/images/image-1.jpg) no-repeat;
+}
+
+.palette {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    .color {
+        height: 2rem;
+        width: 2rem;
+        border-radius: 20rem;
+        margin: 3rem 1rem;
+        border: 1px solid rgba(255, 255, 255, .5);
+    }
+}
+
+.panel-1 {
+    background: url(../assets/images/image-2.jpg) no-repeat;
     background-size: cover;
-    background-position: top;
+    background-position: center;
+    color: $charcoal;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .subtext {
+        margin-top: 50vh;
+        color: white;
+    }
 }
 
 .panel-2 {
+    background-color: $charcoal;
+}
+
+.panel-3 {
+    background: url(../assets/images/image-1.jpg) no-repeat; //Photo by Amy Humphries on Unsplash
+    background-size: cover;
+    background-position: center;
+
+    .dress-code {
+        padding: 1rem;
+        object {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0 .5rem;
+        }
+    }
+}
+
+.panel-4 {
     background-color: $rust;
 }
 
-#group1 {
-    z-index: 5;
+.panel-5 {
+    background: url(../assets/images/image-3.jpg) no-repeat; //Photo by Amy Humphries on Unsplash
+    background-size: cover;
+    background-position: top;
+
+    .guest-list {
+        height: 100%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
 }
 
-#group1 {
-    z-index: 3;
+.panel-6 {
+    background-color: $peach;
 }
