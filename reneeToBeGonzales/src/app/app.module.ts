@@ -8,6 +8,7 @@ import { GuestListComponent } from './components/guest-list/guest-list.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatRadioModule } from '@angular/material/radio';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { MatRadioModule } from '@angular/material/radio';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatRadioModule,
-    FormsModule
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

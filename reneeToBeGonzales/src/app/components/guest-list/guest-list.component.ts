@@ -30,7 +30,7 @@ export class GuestListComponent implements OnInit {
   private _get(): any {
     return [{
         name: 'Maria Rosario Purugganan',
-        going: false
+        going: true
       }, {
         name: 'Darah Umadac',
         going: false

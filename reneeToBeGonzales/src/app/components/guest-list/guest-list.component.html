@@ -1,20 +1,21 @@
-<div class="rsvp">
+
   <div class="guest-list">
     <ng-container *ngFor="let guest of guestList"> 
       <a (click)="selected = guest">{{ guest.name }}</a>
     </ng-container>
   </div>
-  
-  <mat-radio-group
-    aria-labelledby="example-radio-group-label"
-    class="example-radio-group"
-    [(ngModel)]="selected.going"
-    *ngIf="selected">
-      <mat-radio-button name="rsvp" class="example-radio-button" [value]="true">
-        going
-      </mat-radio-button>
-      <mat-radio-button name="rsvp" class="example-radio-button" [value]="false">
-        not going
-      </mat-radio-button>
-  </mat-radio-group>
-</div>
+  <div class="rsvp" *ngIf="selected">
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="radio-group"
+      [(ngModel)]="selected.going">
+        <mat-radio-button name="rsvp" class="radio" [value]="true">
+          going
+        </mat-radio-button>
+        <mat-radio-button name="rsvp" class="radio" [value]="false">
+          not going
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <button mat-flat-button class="subtext">Submit</button>
+  </div>
