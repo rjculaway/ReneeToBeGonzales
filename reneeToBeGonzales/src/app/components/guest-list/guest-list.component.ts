@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RsvpService } from 'src/app/services/rsvp.service';
 
 @Component({
   selector: 'app-guest-list',
@@ -10,24 +11,29 @@ export class GuestListComponent implements OnInit {
   guestList = [{}];
   selected: any;
 
-  constructor() { }
+  constructor(private rsvpService: RsvpService) { }
 
   ngOnInit() {
-    this.guestList = this._get()
-    .sort((a, b) => {
-      if (a.name > b.name) {
-          return 1;
-      }
-  
-      if (a.name < b.name) {
-          return -1;
-      }
-  
-      return 0;
+    this.rsvpService.getAllGuests().subscribe(items => {
+      console.log(items)
+      this.guestList = items;
     });
+    // this.guestList = this._get()
+    // .sort((a, b) => {
+    //   if (a.name > b.name) {
+    //       return 1;
+    //   }
+  
+    //   if (a.name < b.name) {
+    //       return -1;
+    //   }
+  
+    //   return 0;
+    // });
   }
   
   private _get(): any {
+    //this.rsvpService.getAllGuests().valueChanges;
     return [{
         name: 'Maria Rosario Purugganan',
         going: false
