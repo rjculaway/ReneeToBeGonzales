@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes, ActivatedRouteSnapshot } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SectionDirective } from './directives/section.directive';
@@ -11,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { environment } from 'src/environments/environment';
 
@@ -36,6 +36,7 @@ import { RootComponent } from './root/root.component';
 		FormsModule,
 		MatRadioModule,
 		MatButtonModule,
+		MatSnackBarModule,
 		FormsModule,
 		AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
 		AngularFirestoreModule, // imports firebase/firestore, only needed for database features

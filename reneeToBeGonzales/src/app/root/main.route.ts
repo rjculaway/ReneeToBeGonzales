@@ -3,11 +3,11 @@ import { AppComponent } from '../app.component';
 
 
 export const mainRoutes: Routes = [
-    { path: 'home', component: AppComponent },
-	{ path: 'home/:code', component: AppComponent },
+    { path: '', component: AppComponent },
+	{ path: ':code', component: AppComponent },
 	{
 		path: '',
-		redirectTo: '/home',
+		redirectTo: '/',
 		pathMatch: 'full'
 	}
 ];

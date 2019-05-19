@@ -69,6 +69,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   private _bottom: number;
   private _sections = [];
 
+  code: string;
+
   constructor(private _activatedRoute: ActivatedRoute, private _rsvpService: RsvpService) {
     
    }
@@ -78,14 +80,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
         this.onScroll(event);
     });
     
-    console.log(this._activatedRoute.snapshot.params['code']);
-    
-    // this._activatedRoute.subscribe(params => {
-    //   console.log(params, 'from app component');
-    //   this._rsvpService.getById(params['code']).subscribe(result => {
-    //     console.log(result);
-    //   })
-    // });
+    this.code = this._activatedRoute.snapshot.params['code'];
   }
 
   ngOnDestroy(): void {

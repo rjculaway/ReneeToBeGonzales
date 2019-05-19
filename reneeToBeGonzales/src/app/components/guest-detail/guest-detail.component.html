@@ -1,5 +1,22 @@
 <div class="guest-detail" *ngIf="model; else notFound">
-
+  <div class="guest-container selected">{{ model.fullName }}</div>
+  <div class="guest-container">
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group" 
+      [(ngModel)]="model.isGoing"
+      (ngModelChange)="setText()">
+      <mat-radio-button name="rsvp" class="radio subtext" [value]="true">
+        going
+      </mat-radio-button>
+      <mat-radio-button name="rsvp" class="radio subtext" [value]="false">
+        not going
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="guest-container">
+    <button mat-flat-button class="subtext" (click)="confirm()">
+      {{ this.buttonText }}
+    </button>
+  </div>
 </div>
 <ng-template #notFound>
 

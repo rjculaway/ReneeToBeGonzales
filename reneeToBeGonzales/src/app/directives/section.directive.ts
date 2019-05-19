@@ -15,7 +15,4 @@ export class SectionDirective implements AfterViewInit {
   ngAfterViewInit(): void {
     this.bottom = this.elementRef.nativeElement.getBoundingClientRect().bottom;
   }
-
-
-
 }

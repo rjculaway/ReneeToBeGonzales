@@ -1,3 +1,5 @@
+@import "../../../assets/styles/colors";
+
 .guest-detail {
     max-height: 50vh;
     background: rgba(80, 70, 71, .5);
@@ -5,4 +7,29 @@
 
     display: flex;
     flex-direction: column;
+}
+
+.guest-container {
+    margin: 1rem 0;
+}
+
+.selected {
+    color: $charcoal;
+    padding: 1rem;
+    background-color: rgba(221, 192, 184, 0.8)
+}
+
+.radio {
+    margin: 0 .5rem;
+}
+
+::ng-deep .snackbar { 
+    background: rgba(255, 255, 255, 0.6)!important;
+    color: $charcoal;
+}
+
+button {
+    width: 100%;
+    background-color: $blush;
+    color: $charcoal;
 }
