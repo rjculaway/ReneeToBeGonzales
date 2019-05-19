@@ -12,9 +12,20 @@ import { GuestModel } from 'src/app/models/guest.model';
 })
 export class GuestDetailComponent implements OnInit {
 
-  constructor(private _router: Router, private _route: Route) { }
+  model: any;
+
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute, private _rsvpService: RsvpService) { }
 
   ngOnInit() {
+
+    console.log(this._activatedRoute.snapshot.params['code']);
+    this._activatedRoute.params.subscribe(params => {
+      console.log(params['code']);
+      this._rsvpService.getById(params['code']).subscribe(result => {
+        console.log(result);
+       
+      })
+    });
   }
 
 }

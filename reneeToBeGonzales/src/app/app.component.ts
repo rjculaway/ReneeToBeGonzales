@@ -9,6 +9,8 @@ import {
   ElementRef 
 } from '@angular/core';
 
+import { ActivatedRoute } from '@angular/router';
+
 import {
   trigger,
   state,
@@ -17,8 +19,11 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+
 import { Subscription, fromEvent } from 'rxjs';
 import { SectionDirective } from './directives/section.directive';
+
+import { RsvpService } from 'src/app/services/rsvp.service';
 
 @Component({
   selector: 'app-root',
@@ -61,13 +66,24 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild("header") header: ElementRef;
   @ViewChildren(SectionDirective) sections: QueryList<SectionDirective>;
 
-  private _top: number;
+  private _bottom: number;
   private _sections = [];
+
+  constructor(private _activatedRoute: ActivatedRoute, private _rsvpService: RsvpService) { }
 
   ngOnInit(): void {
     this._eventSubscription = fromEvent(window, "scroll").subscribe(event => {
-                this.onScroll(event);
-            });
+        this.onScroll(event);
+    });
+    
+    console.log(this._activatedRoute.snapshot.params['code']);
+    this._activatedRoute.params.subscribe(params => {
+      console.log(params['code']);
+      this._rsvpService.getById(params['code']).subscribe(result => {
+        console.log(result);
+       
+      })
+    });
   }
 
   ngOnDestroy(): void {
@@ -77,11 +93,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this._top = this.header.nativeElement.getBoundingClientRect().top;
+    this._bottom = this.header.nativeElement.getBoundingClientRect().top;
 
      this.sections.forEach(el => {
       this._sections.push({ 
-        top: el.top,
+        top: el.bottom,
         element: el.elementRef
       })
     });
@@ -92,7 +108,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     const bottom = this.header.nativeElement.getBoundingClientRect().bottom;
     
     
-    if (scroll >= this._top) {
+    if (scroll >= this._bottom) {
       this.header.nativeElement.classList.add('snap');
       this.snap = 'yes';
       this.fadeIn = 'yes';
@@ -102,7 +118,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this._sections.forEach((section, index) => {
-      if ((bottom > Math.abs(section.top) && index !== 0) || (index === 0 && this.header.nativeElement.classList.contains('snap'))) {
+      if ((bottom > Math.abs(section.bottom) && index !== 0) || (index === 0 && this.header.nativeElement.classList.contains('snap'))) {
         section.element.nativeElement.classList.add('static')
       } else {
         section.element.nativeElement.classList.remove('static')

@@ -1,3 +1,6 @@
-<p>
-  guest-detail works!
-</p>
+<div class="guest-detail" *ngIf="model; else notFound">
+
+</div>
+<ng-template #notFound>
+
+</ng-template>

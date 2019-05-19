@@ -21,9 +21,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RsvpService } from './services/rsvp.service';
 
 const appRoutes: Routes = [
-	{ path: '/:id', component: GuestDetailComponent },
+	{ path: 'home', component: AppComponent },
+	{ path: 'home/:code', component: AppComponent },
 	{ path: '',
-	  redirectTo: '/',
+	  redirectTo: '/home',
 	  pathMatch: 'full'
 	}
   ];
@@ -37,19 +38,19 @@ const appRoutes: Routes = [
 	GuestDetailComponent
   ],
   imports: [
-	BrowserModule,
-	BrowserAnimationsModule,
-	FormsModule,
-	MatRadioModule,
-	MatButtonModule,
-	FormsModule,
-	AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
-	AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-	AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-	AngularFireStorageModule, // imports firebase/storage only needed for storage features
+		BrowserModule,
+		BrowserAnimationsModule,
+		FormsModule,
+		MatRadioModule,
+		MatButtonModule,
+		FormsModule,
+		AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
+		AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+		AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+		AngularFireStorageModule, // imports firebase/storage only needed for storage features
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: false } // <-- debugging purposes only
     )
   ],
   providers: [RsvpService],
