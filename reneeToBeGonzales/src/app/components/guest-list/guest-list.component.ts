@@ -16,7 +16,7 @@ export class GuestListComponent implements OnInit {
   constructor(private rsvpService: RsvpService) { }
 
   ngOnInit() {
-	this.guestList = this.rsvpService.getAllGuests().snapshotChanges().pipe(
+    this.guestList = this.rsvpService.getAllGuests().snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as GuestModel;
         const id = a.payload.doc.id;

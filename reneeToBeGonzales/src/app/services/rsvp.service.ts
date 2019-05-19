@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { GuestModel } from '../models/guest.model';
 import { reject } from 'q';
- 
+
 @Injectable()
 export class RsvpService {
-    
+
     options: any;
 
     constructor(private db: AngularFirestore) {
@@ -20,6 +20,6 @@ export class RsvpService {
     }
 
     confirmRsvp(id: string, isGoing: boolean) {
-        return this.db.collection('guests').doc(id).update({ isGoing: isGoing});
+        return this.db.collection('guests').doc(id).update({ isGoing: isGoing });
     }
 }

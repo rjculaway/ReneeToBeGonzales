@@ -1,24 +1,21 @@
+<div class="rsvp-text subtext">
+  we are hoping that you could join us.
+</div>
+<div class="guest-list">
+  <ng-container *ngFor="let guest of guestList | async">
+    <a [ngClass]="{ 'selected': selected && selected.name === guest.fullName }" (click)="selected = guest">{{
+      guest.fullName }}</a>
+  </ng-container>
+</div>
+<div class="rsvp" *ngIf="selected">
+  <mat-radio-group aria-labelledby="example-radio-group-label" class="radio-group" [(ngModel)]="selected.going">
+    <mat-radio-button name="rsvp" class="radio" [value]="true">
+      going
+    </mat-radio-button>
+    <mat-radio-button name="rsvp" class="radio" [value]="false">
+      not going
+    </mat-radio-button>
+  </mat-radio-group>
 
-  <div class="rsvp-text subtext">
-    we are hoping that you could join us.
-  </div>
-  <div class="guest-list">
-    <ng-container *ngFor="let guest of guestList | async"> 
-      <a [ngClass]="{ 'selected': selected && selected.name === guest.fullName }" (click)="selected = guest">{{ guest.fullName }}</a>
-    </ng-container>
-  </div>
-  <div class="rsvp" *ngIf="selected">
-    <mat-radio-group
-      aria-labelledby="example-radio-group-label"
-      class="radio-group"
-      [(ngModel)]="selected.going">
-        <mat-radio-button name="rsvp" class="radio" [value]="true">
-          going
-        </mat-radio-button>
-        <mat-radio-button name="rsvp" class="radio" [value]="false">
-          not going
-        </mat-radio-button>
-    </mat-radio-group>
-
-    <button mat-flat-button class="subtext" (click)="test()">Submit</button>
-  </div>
+  <button mat-flat-button class="subtext" (click)="test()">Submit</button>
+</div>
