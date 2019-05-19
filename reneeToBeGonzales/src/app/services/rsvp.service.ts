@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { GuestModel } from '../models/guest.model';
-import { reject } from 'q';
 
 @Injectable()
 export class RsvpService {
-
-    options: any;
 
     constructor(private db: AngularFirestore) {
     }
