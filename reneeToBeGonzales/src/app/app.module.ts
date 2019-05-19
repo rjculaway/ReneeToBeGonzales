@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ActivatedRouteSnapshot } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SectionDirective } from './directives/section.directive';
@@ -19,25 +19,18 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RsvpService } from './services/rsvp.service';
-
-const appRoutes: Routes = [
-	{ path: 'home', component: AppComponent },
-	{ path: 'home/:code', component: AppComponent },
-	{ path: '',
-	  redirectTo: '/home',
-	  pathMatch: 'full'
-	}
-  ];
-  
+import { mainRoutingProviders, routing } from './root/main.route';
+import { RootComponent } from './root/root.component';
 
 @NgModule({
-  declarations: [
-	AppComponent,
-	SectionDirective,
-	GuestListComponent,
-	GuestDetailComponent
-  ],
-  imports: [
+	declarations: [
+		AppComponent,
+		SectionDirective,
+		GuestListComponent,
+		GuestDetailComponent,
+		RootComponent
+	],
+	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
 		FormsModule,
@@ -48,12 +41,10 @@ const appRoutes: Routes = [
 		AngularFirestoreModule, // imports firebase/firestore, only needed for database features
 		AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
 		AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: false } // <-- debugging purposes only
-    )
-  ],
-  providers: [RsvpService],
-  bootstrap: [AppComponent]
+		routing,
+		mainRoutingProviders
+	],
+	providers: [RsvpService],
+	bootstrap: [RootComponent]
 })
 export class AppModule { }
