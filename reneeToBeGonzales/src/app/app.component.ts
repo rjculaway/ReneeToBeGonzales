@@ -18,7 +18,6 @@ import {
   // ...
 } from '@angular/animations';
 import { Subscription, fromEvent } from 'rxjs';
-
 import { SectionDirective } from './directives/section.directive';
 
 @Component({

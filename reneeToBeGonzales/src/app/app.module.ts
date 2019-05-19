@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SectionDirective } from './directives/section.directive';
 import { GuestListComponent } from './components/guest-list/guest-list.component';
+import { GuestDetailComponent } from './components/guest-detail/guest-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatRadioModule } from '@angular/material/radio';
@@ -18,23 +20,37 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { RsvpService } from './services/rsvp.service';
 
+const appRoutes: Routes = [
+	{ path: '/:id', component: GuestDetailComponent },
+	{ path: '',
+	  redirectTo: '/',
+	  pathMatch: 'full'
+	}
+  ];
+  
+
 @NgModule({
   declarations: [
-    AppComponent,
-    SectionDirective,
-    GuestListComponent
+	AppComponent,
+	SectionDirective,
+	GuestListComponent,
+	GuestDetailComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatRadioModule,
-    MatButtonModule,
-    FormsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+	BrowserModule,
+	BrowserAnimationsModule,
+	FormsModule,
+	MatRadioModule,
+	MatButtonModule,
+	FormsModule,
+	AngularFireModule.initializeApp(environment.firebase, 'reneetobegonzales'),
+	AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+	AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+	AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // <-- debugging purposes only
+    )
   ],
   providers: [RsvpService],
   bootstrap: [AppComponent]

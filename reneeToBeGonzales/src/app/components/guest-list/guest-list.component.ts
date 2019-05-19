@@ -19,12 +19,13 @@ export class GuestListComponent implements OnInit {
     this.guestList = this.rsvpService.getAllGuests().snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as GuestModel;
+        data.lastName = data.fullName.split(/[ ]+/).pop();
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
     );
   }
-
+  
   test() {
     this.rsvpService.getById(this.selected.id).subscribe(guest => {
       console.log(guest);
