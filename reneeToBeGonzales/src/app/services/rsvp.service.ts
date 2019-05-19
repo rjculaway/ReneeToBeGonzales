@@ -6,8 +6,6 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class RsvpService {
 
-    options: any;
-
     constructor(private db: AngularFirestore) {
     }
 
