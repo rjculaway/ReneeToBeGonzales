@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RsvpService } from 'src/app/services/rsvp.service';
+import { GuestModel } from 'src/app/models/guest.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-guest-list',
@@ -8,31 +10,23 @@ import { RsvpService } from 'src/app/services/rsvp.service';
 })
 export class GuestListComponent implements OnInit {
 
-  guestList = [{}];
+  guestList: any;
   selected: any;
 
   constructor(private rsvpService: RsvpService) { }
 
   ngOnInit() {
-    this.rsvpService.getAllGuests().subscribe(items => {
-      
-      this.guestList = items.map(item => {
-        return {
-          fullName: item.fullName,
-          lastName: item.fullName.split(/[ ]+/).pop(),
-          isGoing: item.isGoing
-        }
-      }).sort((a, b) => {
-        if (a.lastName > b.lastName) {
-            return 1;
-        }
-    
-        if (a.lastName < b.lastName) {
-            return -1;
-        }
-    
-        return 0;
-      });
-    });
+    this.guestList = this.rsvpService.getAllGuests().snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as GuestModel;
+        data.lastName = data.fullName.split(/[ ]+/).pop();
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
+  }
+  
+  test() {
+    this.rsvpService.confirmRsvp(this.selected.id, this.selected.going);
   }
 }

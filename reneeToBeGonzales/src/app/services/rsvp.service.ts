@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { GuestModel } from '../models/guest.model';
+import { reject } from 'q';
  
 @Injectable()
 export class RsvpService {
@@ -10,11 +11,11 @@ export class RsvpService {
     constructor(private db: AngularFirestore) {
     }
 
-    getAllGuests(): any {
-        return this.db.collection('guests').valueChanges();
+    getAllGuests() {
+        return this.db.collection<GuestModel>('guests');
     }
 
-    confirmRsvp(name: string) {
-        //return this.httpClient.post(`/confirm/${name}`, this.options);
+    confirmRsvp(id: string, isGoing: boolean) {
+        return this.db.collection('guests').doc(id).update({ isGoing: isGoing});
     }
 }
