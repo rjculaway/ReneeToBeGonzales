@@ -145,6 +145,23 @@ h1 {
 .panel-6 {
     background-color: $peach;
 
+    .image-container {
+        background-image: url(../assets/images/jpg/IMG_0168-Edit.jpg);
+        min-height: 12rem;
+        width: calc(100% - 4rem);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-bottom: 2rem;
+        border: 8px solid white;
+
+        @media (min-width: 768px) {
+            width: 25%;
+            min-height: 15rem; 
+            margin-top: 2rem;
+        }
+    }
+
     .image {
         width: 50%;
         border: 8px solid white;
@@ -155,6 +172,8 @@ h1 {
 
     .section-container {
         flex-direction: column;
+        align-items: center;
+        align-content: center;
 
         .social {
             padding: 1rem;
