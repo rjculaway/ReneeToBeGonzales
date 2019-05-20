@@ -21,9 +21,18 @@ export class GuestListComponent implements OnInit {
         const data = a.payload.doc.data() as GuestModel;
         data.lastName = data.fullName.split(/[ ]+/).pop();
         const id = a.payload.doc.id;
+
         return { id, ...data };
       }))
     );
+    this.guestList.subscribe(result => {
+      let csv = '';
+
+      result.forEach(element => {
+        csv += `${ element.id }, ${ element.fullName }:`
+      });
+      console.log(csv)
+    })
   }
   
   test() {
