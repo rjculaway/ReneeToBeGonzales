@@ -161,4 +161,17 @@ h1 {
             width: 70%;
         }
     }
+
+    .credits {
+        font-size: .5rem;
+        position: absolute;
+        bottom: 0;
+        padding: 1rem;
+        color: $sand;
+
+        a {
+            color: $rust;
+            text-decoration: none;
+        }
+    }
 }
