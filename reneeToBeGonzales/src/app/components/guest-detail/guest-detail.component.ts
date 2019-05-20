@@ -34,10 +34,10 @@ export class GuestDetailComponent implements OnInit {
   setText(): void {
     if (this.model && this.model.isGoing) {
       this.buttonText = "wouldn't miss it for the world";
-      this._snackbartText = 'hooray!';
+      this._snackbartText = 'hooray! 😍😍😍';
     } else {
       this.buttonText = 'will be there in spirit';
-      this._snackbartText = 'awww...';
+      this._snackbartText = 'awww... 😞😞😞';
     }
   }
   

@@ -145,6 +145,14 @@ h1 {
 .panel-6 {
     background-color: $peach;
 
+    .image {
+        width: 50%;
+        border: 8px solid white;
+        margin: 1rem;
+        
+        box-shadow: 0 8px 6px -6px rgba(0, 0, 0, .5);
+    }
+
     .section-container {
         flex-direction: column;
 
